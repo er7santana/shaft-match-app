@@ -21,7 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cards = cardModel.getCards()
         
         collectionView.delegate = self
-        collectionView.dataSource = self        
+        collectionView.dataSource = self
     }
 
     // MARK: - UICollectionView Protocols Methods
@@ -32,14 +32,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCollectionViewCell
+        
+        cell.setCard(cards[indexPath.row])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO: Called when the user select an item in collection View
-        print("item at index \(indexPath) selected/tapped")
+        
+        let card = cards[indexPath.row]
+        let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
+        
+        if card.isFlipped {
+            cell.flipBack()
+            card.isFlipped = false
+        }
+        else {
+            cell.flip()
+            card.isFlipped = true
+        }
+        
     }
     
 }
