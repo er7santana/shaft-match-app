@@ -6,5 +6,5 @@ It is part of a trainning given by [CodeWithChris](https://codewithchris.com) ab
 
 ## Screenshots ##
 
-<img src="screenshots/main_landscape.png" width="500">
-<img src="screenshots/main_screen.png" width="250">
+<img src="screenshots/main_unflipped.png" width="500">
+<img src="screenshots/main_flipped.png" width="500">
