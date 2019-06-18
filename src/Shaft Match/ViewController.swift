@@ -15,6 +15,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var cardModel = CardModel()
     var cards = [Card]()
     
+    var firstFlippedCardIndex:IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -41,16 +43,41 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let card = cards[indexPath.row]
-        let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
+        let currentCard = cards[indexPath.row]
+        let currentCell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
         
-        if card.isFlipped {
-            cell.flipBack()
-            card.isFlipped = false
-        }
-        else {
-            cell.flip()
-            card.isFlipped = true
+        if !currentCard.isFlipped && !currentCard.isMatched {
+            currentCell.flip()
+            currentCard.isFlipped = true
+            
+            if firstFlippedCardIndex == nil {
+                firstFlippedCardIndex = indexPath
+            }
+            else {
+                
+                let firstCard = cards[firstFlippedCardIndex!.row]
+                let firstCell = collectionView.cellForItem(at: firstFlippedCardIndex!) as? CardCollectionViewCell
+                
+                if firstCard.imageName == currentCard.imageName {
+                    
+                    firstCard.isMatched = true
+                    currentCard.isMatched = true
+                    
+                    firstCell?.remove()
+                    currentCell.remove()
+                }
+                else {
+                    firstCell?.flipBack()
+                    firstCard.isFlipped = false
+                    currentCell.flipBack()
+                    currentCard.isFlipped = false
+                }
+                
+                if firstCell == nil {
+                    collectionView.reloadItems(at: [firstFlippedCardIndex!])
+                }
+                firstFlippedCardIndex = nil
+            }
         }
         
     }
