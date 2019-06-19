@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84B667A722B9EAB400404F1D /* dingwrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84B667A322B9EAB300404F1D /* dingwrong.wav */; };
+		84B667A822B9EAB400404F1D /* dingcorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84B667A422B9EAB400404F1D /* dingcorrect.wav */; };
+		84B667A922B9EAB400404F1D /* shuffle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84B667A522B9EAB400404F1D /* shuffle.wav */; };
+		84B667AA22B9EAB400404F1D /* cardflip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84B667A622B9EAB400404F1D /* cardflip.wav */; };
 		84E9000D22B7E613005D466D /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9000C22B7E613005D466D /* CardModel.swift */; };
 		84E9000F22B7E809005D466D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9000E22B7E809005D466D /* Card.swift */; };
 		84E9001122B7EF86005D466D /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9001022B7EF86005D466D /* CardCollectionViewCell.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84B667A322B9EAB300404F1D /* dingwrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dingwrong.wav; sourceTree = "<group>"; };
+		84B667A422B9EAB400404F1D /* dingcorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dingcorrect.wav; sourceTree = "<group>"; };
+		84B667A522B9EAB400404F1D /* shuffle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shuffle.wav; sourceTree = "<group>"; };
+		84B667A622B9EAB400404F1D /* cardflip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardflip.wav; sourceTree = "<group>"; };
 		84E9000C22B7E613005D466D /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = Models/CardModel.swift; sourceTree = "<group>"; };
 		84E9000E22B7E809005D466D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Models/Card.swift; sourceTree = "<group>"; };
 		84E9001022B7EF86005D466D /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -41,6 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84B667A222B9EA5700404F1D /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				84B667A622B9EAB400404F1D /* cardflip.wav */,
+				84B667A422B9EAB400404F1D /* dingcorrect.wav */,
+				84B667A322B9EAB300404F1D /* dingwrong.wav */,
+				84B667A522B9EAB400404F1D /* shuffle.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		84E9000B22B7E5FA005D466D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +88,7 @@
 		84F1FF5B22B752750045BF86 /* Shaft Match */ = {
 			isa = PBXGroup;
 			children = (
+				84B667A222B9EA5700404F1D /* Sounds */,
 				84E9000B22B7E5FA005D466D /* Models */,
 				84F1FF5C22B752750045BF86 /* AppDelegate.swift */,
 				84F1FF5E22B752750045BF86 /* ViewController.swift */,
@@ -139,6 +159,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B667A922B9EAB400404F1D /* shuffle.wav in Resources */,
+				84B667A722B9EAB400404F1D /* dingwrong.wav in Resources */,
+				84B667A822B9EAB400404F1D /* dingcorrect.wav in Resources */,
+				84B667AA22B9EAB400404F1D /* cardflip.wav in Resources */,
 				84F1FF6722B752770045BF86 /* LaunchScreen.storyboard in Resources */,
 				84F1FF6422B752770045BF86 /* Assets.xcassets in Resources */,
 				84F1FF6222B752750045BF86 /* Main.storyboard in Resources */,
