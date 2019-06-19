@@ -18,18 +18,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var firstFlippedCardIndex:IndexPath?
     var timer:Timer?
-    var milliseconds:Float = 30 * 1000
+    var milliseconds:Float = 5 * 1000
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    func startGame() {
+        timerLabel.textColor = UIColor.black
+        milliseconds = 5 * 1000
+        firstFlippedCardIndex = nil
         cards = cardModel.getCards()
+        
+        collectionView.reloadData()
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: .common)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        startGame()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,7 +132,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func showAlert(_ title: String, _ message: String) {
         //Show won/lost messages
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+        let alertAction = UIAlertAction(title: "Play again", style: .default, handler: {action -> Void in self.startGame()})
         
         alert.addAction(alertAction)
         
