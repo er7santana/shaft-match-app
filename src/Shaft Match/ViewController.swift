@@ -18,11 +18,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var firstFlippedCardIndex:IndexPath?
     var timer:Timer?
-    var milliseconds:Float = 5 * 1000
+    var milliseconds:Float = 57 * 1000
     
     func startGame() {
         timerLabel.textColor = UIColor.black
-        milliseconds = 5 * 1000
+        milliseconds = 57 * 1000
         firstFlippedCardIndex = nil
         cards = cardModel.getCards()
         
