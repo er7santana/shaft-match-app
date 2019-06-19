@@ -18,7 +18,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var firstFlippedCardIndex:IndexPath?
     var timer:Timer?
-    var milliseconds:Float = 10 * 1000
+    var milliseconds:Float = 30 * 1000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: .common)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        SoundManager.playSound(.shuffle)
     }
     
     @objc func timerElapsed() {
@@ -77,6 +81,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             currentCard.isFlipped = true
             
             if firstFlippedCardIndex == nil {
+                
+                SoundManager.playSound(.flip)
                 firstFlippedCardIndex = indexPath
             }
             else {
@@ -89,12 +95,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     firstCard.isMatched = true
                     currentCard.isMatched = true
                     
+                    SoundManager.playSound(.match)
+                    
                     firstCell?.remove()
                     currentCell.remove()
                     
                     checkGameEnded()
                 }
                 else {
+                    
+                    SoundManager.playSound(.nomatch)
+                    
                     firstCell?.flipBack()
                     firstCard.isFlipped = false
                     currentCell.flipBack()
